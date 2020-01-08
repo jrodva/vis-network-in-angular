@@ -3,3 +3,11 @@
   height: 90vh;
   background: transparent linear-gradient(180deg, #656363 0%, #3C3C3C 100%) 0% 0% no-repeat padding-box;
 }
+.actionButton {
+  background-color: #5800FF;
+  color: #F7F7F7;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 20px;
+  font-weight: bold;
+}
