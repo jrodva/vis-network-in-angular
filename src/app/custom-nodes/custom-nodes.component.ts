@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Edge, Network, Node } from "vis-network";
+import { Edge, Node, DataSet, Network } from "vis-network/standalone";
 import { graphEdges, graphNodes } from '../../assets/vis-data';
-import vis from "vis-network";
 
 @Component({
   selector: 'app-custom-nodes',
@@ -43,11 +42,11 @@ export class CustomNodesComponent implements OnInit {
       navigationButtons: true
     };
     const options = {layout, manipulation, interaction};
-    this.nodes = new vis.DataSet(graphNodes);
-    this.edges = new vis.DataSet(graphEdges);
+    this.nodes = new DataSet(graphNodes);
+    this.edges = new DataSet(graphEdges);
     const container = document.getElementById('mynetwork-vis');
     const data = { nodes: this.nodes, edges: this.edges };
-    this.network = new vis.Network(container, data, options);
+    this.network = new Network(container, data, options);
   }
 
 }
