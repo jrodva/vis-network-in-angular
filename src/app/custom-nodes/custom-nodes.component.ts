@@ -12,8 +12,12 @@ export class CustomNodesComponent implements OnInit {
   network: Network;
   nodes: DataSet<Node>;
   edges: DataSet<Edge>;
+  isAdded: boolean;
 
   constructor() {
+    this.nodes = new DataSet<Node, 'id'>(graphNodes);
+    this.edges = new DataSet<Edge, 'id'>(graphEdges);
+    this.isAdded = false;
   }
 
   ngOnInit() {
@@ -42,8 +46,6 @@ export class CustomNodesComponent implements OnInit {
       navigationButtons: true
     };
     const options = {layout, manipulation, interaction};
-    this.nodes = new DataSet<Node, 'id'>(graphNodes);
-    this.edges = new DataSet<Edge, 'id'>(graphEdges);
     const container = document.getElementById('mynetwork-vis');
     const data = { nodes: this.nodes, edges: this.edges };
     this.network = new Network(container, data, options);
@@ -74,6 +76,12 @@ export class CustomNodesComponent implements OnInit {
       color: clusterColor
     });
     this.edges.add({from: 2000, to: 2,  color: {color: '#ff00ff'}});
+    this.isAdded = true;
+  }
+
+  remove() {
+    this.nodes.remove(2000);
+    this.isAdded = false;
   }
 
 }

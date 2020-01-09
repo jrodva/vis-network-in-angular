@@ -1,4 +1,7 @@
-<button class ="actionButton" (click)="add()">
+<button class ="actionButton" (click)="add()" [disabled]="isAdded">
   ADD NEW NODE
+</button>
+<button class ="actionButton" (click)="remove()" [disabled]="!isAdded">
+  REMOVE NEW NODE
 </button>
 <div id="mynetwork-vis" class="wrapper-network"></div>
